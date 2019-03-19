@@ -16,7 +16,10 @@ public class UserController {
 
     @RequestMapping("/print")
     public Object printUser(User user){
-        userService.printUser(user);
+        UserValidator userValidator = (UserValidator)userService;
+        if(userValidator.validate(user)){
+            userService.printUser(user);
+        }
         return user;
     }
 

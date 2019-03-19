@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
+//    @DeclareParents(value = "com.tgy.springboot2.xbook.springboot2xbookc4.UserServiceImpl+",defaultImpl = UserValidatorImpl.class)
+//    public UserValidator userValidator;
+
+
     @Pointcut("execution(* com.tgy.springboot2.xbook.springboot2xbookc4.UserServiceImpl.printUser(..))")
     public void pointCut(){
 
