@@ -13,6 +13,14 @@ public class User {
     private String note;
     private SexEnum sex;
 
+    public User(String userName, String note) {
+        this.userName = userName;
+        this.note = note;
+    }
+
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
