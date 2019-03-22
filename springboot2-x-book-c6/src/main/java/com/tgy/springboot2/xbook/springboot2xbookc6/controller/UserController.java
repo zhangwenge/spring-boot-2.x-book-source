@@ -1,9 +1,12 @@
 package com.tgy.springboot2.xbook.springboot2xbookc6.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.tgy.springboot2.xbook.springboot2xbookc6.common.vo.BaseRspBo;
 import com.tgy.springboot2.xbook.springboot2xbookc6.common.vo.RspConstants;
 import com.tgy.springboot2.xbook.springboot2xbookc6.controller.vo.UserBatchVo;
 import com.tgy.springboot2.xbook.springboot2xbookc6.controller.vo.UserInsertBatchRspBo;
+import com.tgy.springboot2.xbook.springboot2xbookc6.dao.UserMapper;
 import com.tgy.springboot2.xbook.springboot2xbookc6.po.User;
 import com.tgy.springboot2.xbook.springboot2xbookc6.service.UserBatchService;
 import com.tgy.springboot2.xbook.springboot2xbookc6.service.UserService;
@@ -26,10 +29,21 @@ public class UserController {
     @Autowired
     private UserBatchService userBatchService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @RequestMapping("/user")
     public Object getUser(User user) {
         User userR = userService.getUser(user.getId());
         return userR;
+    }
+
+    @RequestMapping("/page")
+    public Object page() {
+        PageHelper.startPage(2, 3);
+        List<User> users = userMapper.getUsers();
+        PageInfo page = new PageInfo(users);
+        return users;
     }
 
     @RequestMapping("/insertUser")

@@ -9,4 +9,8 @@
     insert into t_user (user_name,sex,note) values (#{userName},#{sex},#{note})
   </insert>
 
+  <select id="getUsers" resultType="user">
+    select * from t_user
+  </select>
+
 </mapper>
