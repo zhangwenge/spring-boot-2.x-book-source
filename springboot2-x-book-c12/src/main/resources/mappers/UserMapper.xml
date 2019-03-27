@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tgy.springboot2.xbook.springboot2xbookc12.dao.UserMapper">
+  <select id="getUserByName" parameterType="java.lang.String"
+          resultType="userPo">
+    select id,user_name userName,pwd,available,note from t_user
+    <where>
+      <if test="name != null and name != ''">
+        AND user_name = #{name,jdbcType=VARCHAR}
+      </if>
+    </where>
+
+  </select>
+
+</mapper>
