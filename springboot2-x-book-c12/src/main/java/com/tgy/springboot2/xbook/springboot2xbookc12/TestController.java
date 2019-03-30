@@ -32,15 +32,15 @@ public class TestController {
 
     @GetMapping("/role")
     @ResponseBody
-    public Object role(String userName){
-        if(StringUtils.isEmpty(userName)){
+    public Object role(String userName) {
+        if (StringUtils.isEmpty(userName)) {
             userName = "tgy";
         }
         UserPo userByName = userRoleService.getUserByName(userName);
         List<RolePo> rolesByUserName = userRoleService.findRolesByUserName(userName);
-        Map<String,Object> retMap = new HashMap<>();
-        retMap.put("role",rolesByUserName);
-        retMap.put("user",userByName);
+        Map<String, Object> retMap = new HashMap<>();
+        retMap.put("role", rolesByUserName);
+        retMap.put("user", userByName);
         return retMap;
 
 

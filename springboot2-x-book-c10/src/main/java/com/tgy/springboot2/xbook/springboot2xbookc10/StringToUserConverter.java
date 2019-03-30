@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @ClassName StringToUserConverter
  */
 @Component
-public class StringToUserConverter implements Converter<String,User> {
+public class StringToUserConverter implements Converter<String, User> {
 
     @Override
     public User convert(String source) {
@@ -16,7 +16,7 @@ public class StringToUserConverter implements Converter<String,User> {
         String[] strs = source.split("-");
         String userName = strs[0];
         String note = strs[1];
-        User user = new User(userName,note);
+        User user = new User(userName, note);
         return user;
     }
 }

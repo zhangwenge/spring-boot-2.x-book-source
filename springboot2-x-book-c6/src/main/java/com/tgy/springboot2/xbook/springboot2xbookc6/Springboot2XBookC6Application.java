@@ -31,7 +31,7 @@ public class Springboot2XBookC6Application {
     }
 
     @PostConstruct
-    public void showTransactionManager(){
+    public void showTransactionManager() {
         System.out.println("调整sqlSessionFactory");
         /*SqlSessionFactoryBean bean = applicationContext.getBean(SqlSessionFactoryBean.class);
         Properties properties = new Properties();
@@ -41,7 +41,6 @@ public class Springboot2XBookC6Application {
         Interceptor[] plugins = {pageInterceptor};
         bean.setPlugins(plugins);*/
     }
-
 
 
 }

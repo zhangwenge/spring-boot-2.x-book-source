@@ -18,8 +18,8 @@ public class Invocation {
         this.target = target;
     }
 
-    public Object procced() throws InvocationTargetException ,IllegalAccessException{
-        return method.invoke(target,params);
+    public Object procced() throws InvocationTargetException, IllegalAccessException {
+        return method.invoke(target, params);
     }
 
     public Object[] getParams() {

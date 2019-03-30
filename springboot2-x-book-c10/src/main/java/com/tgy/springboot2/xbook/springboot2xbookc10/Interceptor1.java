@@ -24,10 +24,10 @@ public class Interceptor1 implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         System.out.println("处理器完成方法");
-        if(ex instanceof ArithmeticException){
+        if (ex instanceof ArithmeticException) {
             response.sendRedirect("http://www.baidu.com");
             return;
-        } else if(ex instanceof NullPointerException){
+        } else if (ex instanceof NullPointerException) {
             response.sendRedirect("http://www.qq.com");
             return;
         }

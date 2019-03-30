@@ -23,32 +23,32 @@ public class TestMainObject {
         addUser(user);
     }
 
-    public static User getUser(Long id){
+    public static User getUser(Long id) {
         RestTemplate restTemplate = new RestTemplate();
         User forObject = restTemplate.getForObject("http://localhost:8080/getUser/{id}", User.class, id);
         System.out.println(forObject);
         return forObject;
     }
 
-    public static User getUser(User user){
+    public static User getUser(User user) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        HttpEntity<User> request = new HttpEntity<>(user,headers);
+        HttpEntity<User> request = new HttpEntity<>(user, headers);
         RestTemplate tm = new RestTemplate();
-        Map<String,Object> map = new HashMap<>();
-        map.put("name",user.getName());
-        map.put("age",user.getAge());
-        map.put("id",user.getId());
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", user.getName());
+        map.put("age", user.getAge());
+        map.put("id", user.getId());
         ResponseEntity<User> forEntity = tm.getForEntity("http://localhost:8080/getUser1", User.class, map);
         User body = forEntity.getBody();
         System.out.println(body);
         return body;
     }
 
-    public static User addUser(User user){
+    public static User addUser(User user) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_PROBLEM_JSON_UTF8);
-        HttpEntity<User> request = new HttpEntity<>(user,headers);
+        HttpEntity<User> request = new HttpEntity<>(user, headers);
         RestTemplate tm = new RestTemplate();
         User user1 = tm.postForObject("http://localhost:8080/addUser", request, User.class);
         System.out.println(user1);

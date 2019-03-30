@@ -30,8 +30,8 @@ public class Springboot2XBookC7Application {
     private ThreadPoolTaskExecutor taskExecutor;
 
     @Bean
-    public ThreadPoolTaskExecutor initTaskScheduler(){
-        if(taskExecutor != null){
+    public ThreadPoolTaskExecutor initTaskScheduler() {
+        if (taskExecutor != null) {
             return taskExecutor;
         }
 
@@ -41,17 +41,17 @@ public class Springboot2XBookC7Application {
     }
 
     @Bean
-    public RedisMessageListenerContainer initContainer(){
+    public RedisMessageListenerContainer initContainer() {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
         container.setTaskExecutor(initTaskScheduler());
         Topic topic = new ChannelTopic("topic1");
-        container.addMessageListener(messageListener,topic);
+        container.addMessageListener(messageListener, topic);
         return container;
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         initRedisTemplate();
     }
 

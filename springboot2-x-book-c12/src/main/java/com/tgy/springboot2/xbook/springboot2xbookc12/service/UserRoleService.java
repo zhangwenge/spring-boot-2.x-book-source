@@ -10,5 +10,6 @@ import java.util.List;
  */
 public interface UserRoleService {
     UserPo getUserByName(String name);
+
     List<RolePo> findRolesByUserName(String userName);
 }

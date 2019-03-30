@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.tgy.springboot2.xbook.springboot2xbookc12.dao.RoleMapper" >
-    <select id="findRolesByUserName" parameterType="java.lang.String" resultType="com.tgy.springboot2.xbook.springboot2xbookc12.pojo.RolePo">
-      select r.id id,r.note note,r.role_name roleName from t_user u,t_role r,t_user_role ur where u.id = ur.user_id and r.id = ur.role_id and u.user_name = #{name}
+<mapper namespace="com.tgy.springboot2.xbook.springboot2xbookc12.dao.RoleMapper">
+    <select id="findRolesByUserName" parameterType="java.lang.String"
+            resultType="com.tgy.springboot2.xbook.springboot2xbookc12.pojo.RolePo">
+        select r.id id,r.note note,r.role_name roleName from t_user u,t_role r,t_user_role ur where u.id = ur.user_id
+        and r.id = ur.role_id and u.user_name = #{name}
     </select>
 </mapper>

@@ -10,29 +10,29 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
 
     @GetMapping("/getUser/{id}")
-    public Object getUser(@PathVariable Long id){
+    public Object getUser(@PathVariable Long id) {
         User user = new User();
         user.setId(id);
         user.setName("name_" + id);
-        if(id != null){
+        if (id != null) {
             user.setAge(id.intValue());
         }
         return user;
     }
 
     @GetMapping("/getUser1")
-    public Object getUser( User user){
+    public Object getUser(User user) {
         return user;
     }
 
     @PostMapping("/addUser")
-    public Object addUser(@RequestBody User user){
+    public Object addUser(@RequestBody User user) {
         return user;
     }
 
 
     @PostMapping("/deleteUser")
-    public Object addUser(Long id){
+    public Object addUser(Long id) {
         User user = new User();
         user.setId(id);
         user.setName("delete_name_" + id);

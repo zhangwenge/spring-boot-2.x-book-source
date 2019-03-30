@@ -16,13 +16,13 @@ public class MyAspect {
 
 
     @Pointcut("execution(* com.tgy.springboot2.xbook.springboot2xbookc4.UserServiceImpl.printUser(..))")
-    public void pointCut(){
+    public void pointCut() {
 
     }
 
 
     @Around("pointCut()")
-    public Object around(ProceedingJoinPoint pj) throws Throwable{
+    public Object around(ProceedingJoinPoint pj) throws Throwable {
         Object[] args = pj.getArgs();
         System.out.println("around before");
         Object proceed = pj.proceed();
@@ -31,20 +31,22 @@ public class MyAspect {
     }
 
     @Before("pointCut()")
-    public void before(){
+    public void before() {
         System.out.println("before");
     }
 
     @After("pointCut()")
-    public void after(){
+    public void after() {
         System.out.println("after");
     }
+
     @AfterThrowing("pointCut()")
-    public void afterThrowing(){
+    public void afterThrowing() {
         System.out.println("afterThrowing");
     }
+
     @AfterReturning("pointCut()")
-    public void afterReturning(){
+    public void afterReturning() {
         System.out.println("afterReturning");
     }
 

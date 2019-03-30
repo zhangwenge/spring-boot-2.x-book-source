@@ -64,13 +64,13 @@ public class UserController {
         List<String> notes = vo.getNotes();
         List<String> names = vo.getNames();
         for (int i = 0; i < notes.size(); i++) {
-            User user = new User(names.get(i),notes.get(i));
+            User user = new User(names.get(i), notes.get(i));
             users.add(user);
         }
         int i = userBatchService.insertUsers(users);
         retBo.setRespCode(RspConstants.RESP_CODE_SUCCESS);
         retBo.setRespDesc(RspConstants.RESP_DESC_SUCCESS);
-        retBo.setSuccess( i> 0);
+        retBo.setSuccess(i > 0);
         retBo.setUsers(users);
         return retBo;
     }

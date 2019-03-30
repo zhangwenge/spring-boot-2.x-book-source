@@ -23,7 +23,7 @@ import java.util.Map;
 
 @SpringBootApplication
 @MapperScan("com.tgy.springboot2.xbook.springboot2xbookc12.dao")
-public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter  {
+public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(Springboot2XBookC12Application.class, args);
@@ -46,7 +46,6 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
             "and u.user_name = ?";
 
 
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         zidingyi(auth);
@@ -60,13 +59,14 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
 
     /**
      * 描述: db验证,带key的那种
+     *
      * @param auth
      * @return void
      * @throws
      * @author tianGuiYin
      * @Date 2019/3/27 23:20
      */
-    private void zidingyi(AuthenticationManagerBuilder auth) throws Exception{
+    private void zidingyi(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = new Pbkdf2PasswordEncoder(key);
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder);
@@ -74,13 +74,14 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
 
     /**
      * 描述: db验证
+     *
      * @param auth
      * @return void
      * @throws
      * @author tianGuiYin
      * @Date 2019/3/27 23:20
      */
-    private void db1(AuthenticationManagerBuilder auth) throws Exception{
+    private void db1(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         auth.jdbcAuthentication()
                 .passwordEncoder(passwordEncoder)
@@ -91,13 +92,14 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
 
     /**
      * 描述: db验证,带key的那种
+     *
      * @param auth
      * @return void
      * @throws
      * @author tianGuiYin
      * @Date 2019/3/27 23:20
      */
-    private void db2(AuthenticationManagerBuilder auth) throws Exception{
+    private void db2(AuthenticationManagerBuilder auth) throws Exception {
         PasswordEncoder passwordEncoder = new Pbkdf2PasswordEncoder(key);
         auth.jdbcAuthentication()
                 .passwordEncoder(passwordEncoder)
@@ -107,9 +109,9 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
     }
 
 
-
     /**
      * 描述: 内存1
+     *
      * @param auth
      * @return void
      * @throws
@@ -123,7 +125,7 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
                 .passwordEncoder(passwordEncoder)
                 .withUser("admin")
                 .password(abc)
-                .roles("USER","ADMIN")
+                .roles("USER", "ADMIN")
                 .and()
                 .withUser("myuser")
                 .password(abc)
@@ -132,6 +134,7 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
 
     /**
      * 描述: 内存2
+     *
      * @param auth
      * @return void
      * @throws
@@ -145,7 +148,7 @@ public class Springboot2XBookC12Application extends WebSecurityConfigurerAdapter
                 = auth.inMemoryAuthentication().passwordEncoder(passwordEncoder);
         userConfig.withUser("admin")
                 .password(abc)
-                .authorities("ROLE_USER","ROLE_ADMIN");
+                .authorities("ROLE_USER", "ROLE_ADMIN");
         userConfig.withUser("myuser")
                 .password(passwordEncoder.encode("123456"))
                 .authorities("ROLE_USER");

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tgy.springboot2.xbook.springboot2xbookc6.dao.UserMapper">
-  <select id="getUser" parameterType="java.lang.Long" resultType="user">
-    select id,user_name as userName,sex,note from t_user where id = #{id}
-  </select>
+    <select id="getUser" parameterType="java.lang.Long" resultType="user">
+        select id,user_name as userName,sex,note from t_user where id = #{id}
+    </select>
 
-  <insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_user (user_name,sex,note) values (#{userName},#{sex},#{note})
-  </insert>
+    <insert id="insertUser" parameterType="user" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user (user_name,sex,note) values (#{userName},#{sex},#{note})
+    </insert>
 
-  <select id="getUsers" resultType="user">
-    select * from t_user
-  </select>
+    <select id="getUsers" resultType="user">
+        select * from t_user
+    </select>
 
 </mapper>

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @ClassName BigPerson
  */
-public class BigPerson extends BaseRequestBo{
+public class BigPerson extends BaseRequestBo {
 
     private static final long serialVersionUID = -2496928288298335862L;
     private List<Person> persons;

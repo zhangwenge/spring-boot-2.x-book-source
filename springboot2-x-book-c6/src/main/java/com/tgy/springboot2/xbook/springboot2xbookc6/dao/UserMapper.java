@@ -8,6 +8,8 @@ import java.util.List;
 @Repository
 public interface UserMapper {
     User getUser(Long id);
+
     int insertUser(User user);
+
     List<User> getUsers();
 }

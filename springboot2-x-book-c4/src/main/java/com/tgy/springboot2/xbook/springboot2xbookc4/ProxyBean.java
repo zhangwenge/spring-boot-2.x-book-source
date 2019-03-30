@@ -11,9 +11,9 @@ import java.lang.reflect.Proxy;
 public class ProxyBean implements InvocationHandler {
 
     private Object target = null;
-    private Interceptor interceptor  = null;
+    private Interceptor interceptor = null;
 
-    public static Object getProxyBean(Object target,Interceptor interceptor){
+    public static Object getProxyBean(Object target, Interceptor interceptor) {
         ProxyBean proxyBean = new ProxyBean();
         proxyBean.target = target;
         proxyBean.interceptor = interceptor;
@@ -24,20 +24,20 @@ public class ProxyBean implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         boolean exceptionFlag = false;
-        Invocation invocation = new Invocation(args,method,target);
+        Invocation invocation = new Invocation(args, method, target);
         Object retObj = null;
         try {
-            if(this.interceptor.before()){
+            if (this.interceptor.before()) {
                 retObj = this.interceptor.around(invocation);
-            }else{
-                retObj = method.invoke(target,args);
+            } else {
+                retObj = method.invoke(target, args);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             exceptionFlag = true;
         }
-        if(exceptionFlag){
+        if (exceptionFlag) {
             this.interceptor.afterThrowing();
-        }else{
+        } else {
             this.interceptor.afterReturning();
             return retObj;
         }

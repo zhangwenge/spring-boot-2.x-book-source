@@ -20,7 +20,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/user")
-    public User getUser(User user){
+    public User getUser(User user) {
         User userR = userService.getUser(user.getId());
         return userR;
     }
@@ -29,8 +29,8 @@ public class UserController {
     private MyBatisUserDao myBatisUserDao;
 
     @RequestMapping("/getUserByName")
-    public Object getUserByName(String name){
-        if(StringUtils.isEmpty(name)){
+    public Object getUserByName(String name) {
+        if (StringUtils.isEmpty(name)) {
             name = "tgy";
         }
         List<User> usersByName = myBatisUserDao.getUsersByName(name);

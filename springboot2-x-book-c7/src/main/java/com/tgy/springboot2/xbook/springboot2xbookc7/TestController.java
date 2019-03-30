@@ -25,8 +25,8 @@ public class TestController {
     private StringRedisTemplate stringRedisTemplate;
 
     @RequestMapping("/stringAndHash")
-    public Map<String,Object> test(){
-        Map<String,Object> retMap = new HashMap<>();
+    public Map<String, Object> test() {
+        Map<String, Object> retMap = new HashMap<>();
 //        redisTemplate.opsForValue().set("key1","value1");
 //        stringRedisTemplate.opsForValue().set("int","1");
 //        stringRedisTemplate.opsForValue().increment("int",1);
@@ -40,8 +40,8 @@ public class TestController {
 //        stringRedisTemplate.opsForHash().put("hash","f3","v3");
 
         BoundHashOperations<String, Object, Object> hash = stringRedisTemplate.boundHashOps("hash");
-        hash.delete("f1","f2");
-        hash.put("f4","v4");
+        hash.delete("f1", "f2");
+        hash.put("f4", "v4");
 
         return retMap;
     }

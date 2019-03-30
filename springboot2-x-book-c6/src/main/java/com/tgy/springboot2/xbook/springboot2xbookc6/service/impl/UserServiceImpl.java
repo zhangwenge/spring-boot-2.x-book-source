@@ -25,16 +25,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.READ_COMMITTED,propagation = Propagation.REQUIRES_NEW)
+    @Transactional(rollbackFor = Exception.class, isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW)
     public int insertUser(User user) {
-        if(user.getId() != null){
+        if (user.getId() != null) {
             user.setId(null);
         }
-        if(user.getSex() == null){
+        if (user.getSex() == null) {
             user.setSex(SexEnum.FEMALE);
         }
         int i = userMapper.insertUser(user);
-        System.out.println(1/0);
+        System.out.println(1 / 0);
         System.out.println("插入的id为：" + user.getId());
         return i;
     }

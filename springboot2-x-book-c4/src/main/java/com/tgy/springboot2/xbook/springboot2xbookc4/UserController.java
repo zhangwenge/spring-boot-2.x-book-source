@@ -15,9 +15,9 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/print")
-    public Object printUser(User user){
-        UserValidator userValidator = (UserValidator)userService;
-        if(userValidator.validate(user)){
+    public Object printUser(User user) {
+        UserValidator userValidator = (UserValidator) userService;
+        if (userValidator.validate(user)) {
             userService.printUser(user);
         }
         return user;

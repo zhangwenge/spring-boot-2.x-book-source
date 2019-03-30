@@ -15,6 +15,6 @@ public class RedisMessageListener implements MessageListener {
         String body = new String(message.getBody());
         String topic = new String(bytes);
         System.out.println("body:" + body);
-        System.out.println("topic: "+ topic);
+        System.out.println("topic: " + topic);
     }
 }

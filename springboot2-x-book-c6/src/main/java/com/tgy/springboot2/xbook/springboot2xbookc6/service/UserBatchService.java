@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  * 描述：用户批量执行
- * @author tianGuiYin      
+ *
+ * @author tianGuiYin
  * @date：2019/3/22 0:27
  */
 public interface UserBatchService {
@@ -14,6 +15,7 @@ public interface UserBatchService {
 
     /**
      * 描述: 批量插入用户
+     *
      * @param users
      * @return int
      * @throws

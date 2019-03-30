@@ -28,18 +28,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         UserPo userPo = userRoleService.getUserByName(userName);
         List<RolePo> roles = userRoleService.findRolesByUserName(userName);
-        return changeToUser(userPo,roles);
+        return changeToUser(userPo, roles);
     }
 
     private UserDetails changeToUser(UserPo userPo, List<RolePo> roles) {
         //权限列表
         List<GrantedAuthority> authorities = new ArrayList<>();
         //查询角色
-        for(RolePo role : roles){
+        for (RolePo role : roles) {
             GrantedAuthority authority = new SimpleGrantedAuthority(role.getRoleName());
             authorities.add(authority);
         }
-        UserDetails userDetails = new User(userPo.getUserName(), userPo.getPwd(),authorities);
+        UserDetails userDetails = new User(userPo.getUserName(), userPo.getPwd(), authorities);
         return userDetails;
     }
 }

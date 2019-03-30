@@ -4,7 +4,8 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * 描述：
- * @author tianGuiYin      
+ *
+ * @author tianGuiYin
  * @date：2019/3/19 0:01
  */
 public class MyIntereptor implements Interceptor {

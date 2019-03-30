@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface MyBatisUserDao {
     User getUser(Long id);
+
     List<User> getUsersByName(String name);
 }

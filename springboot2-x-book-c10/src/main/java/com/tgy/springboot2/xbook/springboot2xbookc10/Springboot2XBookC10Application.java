@@ -21,9 +21,9 @@ public class Springboot2XBookC10Application implements WebMvcConfigurer {
     private String uploadPath;
 
     @PostConstruct
-    public void initFileUploadPath(){
+    public void initFileUploadPath() {
         File file = new File(uploadPath);
-        if(!file.exists()){
+        if (!file.exists()) {
             file.mkdirs();
         }
     }
