@@ -16,6 +16,10 @@ HELP.md
 *.iws
 *.iml
 *.ipr
+*.cmd
+mvnw
+*.jar
+.mvn
 
 ### NetBeans ###
 /nbproject/private/
@@ -24,6 +28,3 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
-
-### VS Code ###
-.vscode/
