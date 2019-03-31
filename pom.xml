@@ -18,5 +18,6 @@
         <module>springboot2-x-book-c11</module>
         <module>springboot2-x-book-c12</module>
         <module>springboot2-x-book-c13</module>
+        <module>springboot2-x-book-c15</module>
     </modules>
 </project>

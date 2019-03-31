@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body>
+    <input type="button" id = "btn" value="开始测试"/>
+</body>
+<script type="text/javascript">
+
+
+    $(document).ready(function(){
+        $("#btn").on("click",function(){
+            for(var i=0;i<50000;i++){
+                var param = {
+                    userId:1,
+                    productId:1,
+                    quantity:1
+                };
+                $.post("../../purchase",param,function (data,status) {
+
+                })
+            }
+            console.log("50000次请求完成了");
+        })
+    });
+</script>
+</html>

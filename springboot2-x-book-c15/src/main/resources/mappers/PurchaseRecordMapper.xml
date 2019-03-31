@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tgy.springboot2.xbook.springboot2xbookc15.dao.PurchaseRecordMapper">
+    <insert id="insertPruchaseRecord" parameterType="purchaseRecord">
+        insert into t_purchase_record
+        (user_id,product_id,price,quantity,sum,purchase_date,note)
+        values
+        (#{userId},#{productId},#{price},#{quantity},#{sum},now(),#{note})
+    </insert>
+
+</mapper>
